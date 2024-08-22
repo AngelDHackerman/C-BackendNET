@@ -38,11 +38,14 @@ superman.IdentidadSecreta = "Clark Kent";
 superman.Ciudad = "Metropolis";
 superman.PuedeVolar = true;
 
+// Agregando superpoders a Superman
+
 List<SuperPoder> poderesSuperman = new List<SuperPoder>();  // Aqui se declara que los super poders seran una lista de la clase "superPoder".
 poderesSuperman.Add(volar);  // aqui se le agregan a lista de los superpoderes de superman el poder de "poderVolar"
 poderesSuperman.Add(superFuerza);
 
 superman.SuperPoderes = poderesSuperman;  // Se agrega todo el objeto de superpoderes a Superman. 
+superman.UsarSuperPoderes();  // se invoca la funcion que describe que superpoderes se estan usando. 
 
 // Creando nuevo objeto para Batman
 var batman = new SuperHeroe();
@@ -53,11 +56,14 @@ batman.IdentidadSecreta = "Bruce Wayne";
 batman.Ciudad = "Gotham";
 batman.PuedeVolar= false;
 
+// agregando superpoderes a batman
+
 List<SuperPoder> poderesBatman = new List<SuperPoder>();
 poderesBatman.Add(superInteligencia);
 poderesBatman.Add(tecnologia);
 
 batman.SuperPoderes = poderesBatman;
+batman.UsarSuperPoderes();
 
 // Creando nuevo objeto para Wonder woman
 var wonderWoman = new SuperHeroe();
@@ -68,11 +74,14 @@ wonderWoman.IdentidadSecreta= "Diana Prince";
 wonderWoman.Ciudad= "Themyscira";
 wonderWoman.PuedeVolar = true;
 
+// agregando superpoderes a wonder woman
+
 List<SuperPoder> poderesWonderWoman = new List<SuperPoder>();
 poderesWonderWoman.Add(inmotalidad);
 poderesWonderWoman.Add(superFuerza);
 
 wonderWoman.SuperPoderes = poderesWonderWoman;
+wonderWoman.UsarSuperPoderes();
 
 
 class SuperHeroe { 
@@ -83,10 +92,16 @@ class SuperHeroe {
   public List<SuperPoder> SuperPoderes;  // List<T> es una clase genérica en C# que representa una lista (o colección) de objetos de un tipo específico. En este caso, SuperPoder es el tipo de objeto que la lista va a contener. 
   public bool PuedeVolar;
 
-  public SuperHeroe() {
+  public SuperHeroe() {  // constructor
     Id = 1;  // el ID por defecto sera 1
     SuperPoderes = new List<SuperPoder>();
     PuedeVolar = false;
+  }
+
+  public void UsarSuperPoderes () {  // void significa que no va a retornar ningun valor, todo sera usado internamente.
+    foreach (var item in SuperPoderes) { 
+      Console.WriteLine($"{Nombre} esta usando el super poder {item.Nombre}!!");
+    }
   }
 }
 
