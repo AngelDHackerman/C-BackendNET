@@ -1,4 +1,6 @@
-﻿var volar = new SuperPoder();
+﻿using System.Text;
+
+var volar = new SuperPoder();
 volar.Nombre = "Volar";
 volar.Descripcion = "Capacidad para volar y planear en el aire";
 volar.Nivel = NivelPoder.NivelDos;
@@ -45,7 +47,8 @@ poderesSuperman.Add(volar);  // aqui se le agregan a lista de los superpoderes d
 poderesSuperman.Add(superFuerza);
 
 superman.SuperPoderes = poderesSuperman;  // Se agrega todo el objeto de superpoderes a Superman. 
-superman.UsarSuperPoderes();  // se invoca la funcion que describe que superpoderes se estan usando. 
+string resultSuperPoderes = superman.UsarSuperPoderes();  // se invoca la funcion que describe que superpoderes se estan usando. 
+Console.WriteLine(resultSuperPoderes);
 
 // Creando nuevo objeto para Batman
 var batman = new SuperHeroe();
@@ -63,7 +66,8 @@ poderesBatman.Add(superInteligencia);
 poderesBatman.Add(tecnologia);
 
 batman.SuperPoderes = poderesBatman;
-batman.UsarSuperPoderes();
+resultSuperPoderes = batman.UsarSuperPoderes();
+Console.WriteLine(resultSuperPoderes);
 
 // Creando nuevo objeto para Wonder woman
 var wonderWoman = new SuperHeroe();
@@ -81,7 +85,8 @@ poderesWonderWoman.Add(inmotalidad);
 poderesWonderWoman.Add(superFuerza);
 
 wonderWoman.SuperPoderes = poderesWonderWoman;
-wonderWoman.UsarSuperPoderes();
+resultSuperPoderes = wonderWoman.UsarSuperPoderes();
+Console.WriteLine(resultSuperPoderes);
 
 
 class SuperHeroe { 
@@ -98,10 +103,14 @@ class SuperHeroe {
     PuedeVolar = false;
   }
 
-  public void UsarSuperPoderes () {  // void significa que no va a retornar ningun valor, todo sera usado internamente.
+  public string UsarSuperPoderes () {  // void significa que no va a retornar ningun valor, todo sera usado internamente.
+    StringBuilder sb = new StringBuilder();
+
     foreach (var item in SuperPoderes) { 
-      Console.WriteLine($"{Nombre} esta usando el super poder {item.Nombre}!!");
+      sb.AppendLine($"{Nombre} esta usando el super poder {item.Nombre}!!");
     }
+
+    return sb.ToString ();
   }
 }
 
