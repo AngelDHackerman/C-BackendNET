@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using System.Text;
 using SuperHeroesApp.Models; // Asegúrate de que el espacio de nombres sea correcto.
 
-class Program {
-    static void Main(string[] args) {
+class Program
+{
+    static void Main(string[] args)
+    {
         var volar = new SuperPoder();
         volar.Nombre = "Volar";
         volar.Descripcion = "Capacidad para volar y planear en el aire";
@@ -56,6 +58,8 @@ class Program {
         superman.SuperPoderes = poderesSuperman;
         string resultSuperPoderes = superman.UsarSuperPoderes();
         Console.WriteLine(resultSuperPoderes);
+        string resultSalvarElMundo = superman.SalvarElMundo();
+        Console.WriteLine(resultSalvarElMundo);
 
         // Creando nuevo objeto para Batman
         var batman = new SuperHeroe();
@@ -90,6 +94,9 @@ class Program {
         wonderWoman.SuperPoderes = poderesWonderWoman;
         resultSuperPoderes = wonderWoman.UsarSuperPoderes();
         Console.WriteLine(resultSuperPoderes);
+
+        string resultSalvarLaTierra = superman.SalvarLaTierra();
+        Console.WriteLine(resultSalvarLaTierra);
 
         // Creando nuevo objeto para Wolvering (AntiHeroe)
         var wolverine = new AntiHeroe();
