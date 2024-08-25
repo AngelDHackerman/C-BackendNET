@@ -13,6 +13,13 @@ namespace SuperHeroesApp.Models {  // asi es como exportamos esto al archivo Pro
     _Nombre = value.Trim();
   }
   }
+
+  // Creando un encapsulamiento de "read Only"
+  public string NombreEIdentidadSecreta {
+    get {
+      return $"{Nombre} ({IdentidadSecreta})";
+    }
+  }
   public string IdentidadSecreta;
   public string Ciudad;
   public List<SuperPoder> SuperPoderes;  // List<T> es una clase genérica en C# que representa una lista (o colección) de objetos de un tipo específico. En este caso, SuperPoder es el tipo de objeto que la lista va a contener. 
@@ -29,7 +36,7 @@ namespace SuperHeroesApp.Models {  // asi es como exportamos esto al archivo Pro
     StringBuilder sb = new StringBuilder();
 
     foreach (var item in SuperPoderes) { 
-      sb.AppendLine($"{Nombre} esta usando el super poder {item.Nombre}!!");
+      sb.AppendLine($"{NombreEIdentidadSecreta} esta usando el super poder {item.Nombre}!!");
     }
 
     return sb.ToString ();
