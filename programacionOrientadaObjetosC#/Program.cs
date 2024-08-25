@@ -35,6 +35,11 @@ class Program {
         inmortalidad.Descripcion = "Capacidad de no morir";
         inmortalidad.Nivel = NivelPoder.NivelTres;
 
+        var regeneracion = new SuperPoder();
+        regeneracion.Nombre = "Regeneracion";
+        regeneracion.Descripcion = "Capacidad curativa y regeneracion de miembros";
+        regeneracion.Nivel = NivelPoder.NivelUno;
+
         // Creando nuevo objeto para superman
         var superman = new SuperHeroe();
         superman.Id = 1;
@@ -85,5 +90,24 @@ class Program {
         wonderWoman.SuperPoderes = poderesWonderWoman;
         resultSuperPoderes = wonderWoman.UsarSuperPoderes();
         Console.WriteLine(resultSuperPoderes);
+
+        // Creando nuevo objeto para Wolvering (AntiHeroe)
+        var wolverine = new AntiHeroe();
+        wolverine.Id = 4;
+        wolverine.Nombre = "Wolverine";
+        wolverine.IdentidadSecreta = "Logan";
+        wolverine.PuedeVolar = false;
+
+        // Agregando superpoderes a Wolverine
+        List<SuperPoder> poderesWolverine = new List<SuperPoder> {
+            inmortalidad,
+            regeneracion
+        };
+        wolverine.SuperPoderes = poderesWolverine;
+        resultSuperPoderes = wolverine.UsarSuperPoderes();
+        Console.WriteLine(resultSuperPoderes);
+
+        string accionAntiheroe = wolverine.RealizarAccionDeAntiheroe("Ataca a la policia");
+        Console.WriteLine(accionAntiheroe);
     }
 }
