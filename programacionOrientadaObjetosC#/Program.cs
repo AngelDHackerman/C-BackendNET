@@ -38,7 +38,7 @@ class Program {
         // Creando nuevo objeto para superman
         var superman = new SuperHeroe();
         superman.Id = 1;
-        superman.Nombre = "Superman";
+        superman.Nombre = "       Superman         ";
         superman.IdentidadSecreta = "Clark Kent";
         superman.Ciudad = "Metropolis";
         superman.PuedeVolar = true;

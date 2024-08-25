@@ -1,9 +1,18 @@
 using System.Text; // Necesario para usar StringBuilder
 
-namespace SuperHeroesApp.Models { 
+namespace SuperHeroesApp.Models {  // asi es como exportamos esto al archivo Program.cs
     class SuperHeroe { 
+  private string _Nombre;
   public int Id;
-  public string Nombre;
+  // Asi es como se hace el encapsulamiento de la propiedad "Nombre" para hacer el "trim" de los espacios en blando recibidos
+  public string Nombre 
+  {get {
+    return _Nombre;
+  } 
+  set {
+    _Nombre = value.Trim();
+  }
+  }
   public string IdentidadSecreta;
   public string Ciudad;
   public List<SuperPoder> SuperPoderes;  // List<T> es una clase genérica en C# que representa una lista (o colección) de objetos de un tipo específico. En este caso, SuperPoder es el tipo de objeto que la lista va a contener. 
