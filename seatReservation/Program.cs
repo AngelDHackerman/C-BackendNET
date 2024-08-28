@@ -123,3 +123,48 @@ public class Sala
   }  
 }
 
+// Programa Principal 
+
+class Program 
+{
+  static void Main(string[] args)
+  {
+    int numeroAsientosEnLaSala = 10;
+    Sala sala = new Sala(numeroAsientosEnLaSala);
+    string opcion;
+
+    do
+    {
+      Console.WriteLine("\nSistema de Reservación de Asientos");
+      Console.WriteLine("1. Mostrar Asientos");
+      Console.WriteLine("2. Reservar Asiento");
+      Console.WriteLine("3. Cancelar Reserva");
+      Console.WriteLine("4. Salir");
+      Console.Write("Elija una opción: ");
+      opcion = Console.ReadLine();
+
+      switch (opcion)
+      {
+        case "1":
+          sala.MostrarAsientos();
+          break;
+        case "2":
+          Console.WriteLine($"Ingrese el numero de asiento a reservar: ");
+          string asientoAReservar = Console.ReadLine();
+          sala.ReservarAsiento(asientoAReservar);
+          break;
+        case "3":
+          Console.WriteLine("Ingrese el numero de asiento a cancelar: ");
+          string asientoACancelar = Console.ReadLine();
+          sala.CancelarReservaAsiento(asientoACancelar);
+          break;
+        case "4":
+          Console.WriteLine("Gracias por usar el sistema de reservacion.");
+          break;
+        default:
+        Console.WriteLine("Opcion no valida.");
+        break;
+      }
+    } while (opcion != "4");
+  }
+}
