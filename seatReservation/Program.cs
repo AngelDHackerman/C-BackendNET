@@ -109,5 +109,17 @@ public class Sala
     }
   }
 
-  
+  public void CancelarReservaAsiento(string identificador)
+  {
+    Asiento asiento = Asientos.FirstOrDefault(a => a.Identificador == identificador);
+    if (asiento != null)
+    {
+      asiento.CancelarReserva();
+    }
+    else
+    {
+      Console.WriteLine($"Asiento no encontrado");
+    }
+  }  
 }
+
