@@ -75,3 +75,39 @@ public class Asiento : ElementoReservable, IReservable
 
 // Clase para la sala de cine
 
+public class Sala 
+{
+  public List<Asiento> Asientos { get; private set; }
+
+  public Sala(int numeroDeAsientos)
+  {
+    Asientos = new List<Asiento>();
+    for (int i = 1; i <= numeroDeAsientos; i ++)
+    {
+      Asientos.Add(new Asiento(i.ToString()));
+    }
+  }
+
+  public void MostrarAsientos()
+  {
+    foreach (var asiento in Asientos)
+    {
+      asiento.MostrarEstado();
+    }
+  }
+
+  public void ReservarAsiento (string identificador)
+  {
+    Asiento asiento = Asientos.FirstOrDefault(a => a.Identificador == identificador);
+    if (asiento != null)
+    {
+      asiento.Reservar();
+    }
+    else
+    {
+      Console.WriteLine($"Asiento no encontrado");
+    }
+  }
+
+  
+}
