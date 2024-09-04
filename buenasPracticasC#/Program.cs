@@ -5,11 +5,10 @@ namespace ToDo
 {
     internal class Program
     {
-        public static List<string> TaskList { get; set; }
+        public static List<string> TaskList { get; set; } = new List<string>();
 
         static void Main(string[] args)
         {
-            TaskList = new List<string>();
             int menuSelected = 0;
             do
             {
@@ -68,7 +67,7 @@ namespace ToDo
                     {
                         string task = TaskList[indexToRemove];
                         TaskList.RemoveAt(indexToRemove);
-                        Console.WriteLine("Tarea " + task + " eliminada");
+                        Console.WriteLine($"Tarea {task} eliminada");
                     }
                 }
             }
