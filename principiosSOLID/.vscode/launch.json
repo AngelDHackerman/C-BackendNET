@@ -1,0 +1,11 @@
+{
+  "configurations": [
+    {
+      "name": "C#: SingleResponsability",
+      "type": "dotnet",
+      "request": "launch",
+      "projectPath": "${workspaceFolder}/1-SingleResponsability/SingleResponsability.csproj",
+      "launchConfigurationId": "TargetFramework=;SingleResponsability"
+    }
+  ]
+}
